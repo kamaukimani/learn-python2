@@ -1,0 +1,16 @@
+--SELECT name FROM cats;
+-- DROP TABLE cats;
+-- SELECT * FROM cats;
+-- CREATE TABLE dogs(
+--     id INTEGER PRIMARY KEY,
+--     name TEXT,
+--     age INTEGER
+-- );
+--ALTER TABLE dogs ADD COLUMN breed TEXT;
+--SELECT * FROM dogs;
+-- SELECT name
+-- FROM sqlite_master
+-- WHERE type='table';
+-- INSERT INTO dogs(name,age,breed)
+-- VALUES("Tusker",3,"Bulldog");
+SELECT * FROM dogs;
