@@ -1,0 +1,30 @@
+-- CREATE TABLE IF NOT EXISTS cats(
+--     id INTEGER PRIMARY KEY,
+--     name TEXT,
+--     age INTEGER,
+--     breed TEXT,
+--     owner_id INTEGER
+-- );
+-- INSERT INTO cats(name,age,breed,owner_id)
+-- VALUES
+--     ('Maru',3,'Scotish',1),
+--     ('Hana',1,'Tabby',1);
+-- INSERT INTO cats (name,age,breed)
+-- VALUES
+--     ('Lil',5,'American'),
+--     ('Moe',10,'Tabby'),
+--     ('Patches',2,'Calico');
+--SELECT * FROM cats;
+-- SELECT * FROM cats ORDER BY age;
+-- SELECT * FROM cats ORDER BY age DESC;
+--SELECT * FROM cats ORDER BY age DESC LIMIT 1;
+-- SELECT * FROM cats ORDER BY age DESC LIMIT 2;
+-- SELECT * FROM cats ORDER BY age ASC LIMIT 3;
+--SELECT name,age FROM cats WHERE age BETWEEN 1 AND 3;
+--SELECT * FROM cats WHERE age BETWEEN 1 AND 3;
+--SELECT * FROM cats;
+--SELECT * FROM cats WHERE name  IS NULL;
+-- SELECT COUNT(*) FROM cats WHERE owner_id=1;
+--SELECT COUNT(owner_id) FROM cats WHERE owner_id=1;
+-- SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
+SELECT breed,owner_id, COUNT(breed) FROM cats GROUP BY breed,owner_id;
