@@ -13,6 +13,33 @@ class Employee:
             f"<Employee{self.id}:{self.name},{self.job_title}, " +
             f"Department ID:{self.department_id}>"
         )
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self,name):
+        if isinstance(name,str) and len(name):
+            self._name=name
+        else:
+            raise ValueError("Name must be a non-empty string")
+    @property
+    def job_title(self):
+        return self._job_title
+    @job_title.setter
+    def job_title(self,job_title):
+        if isinstance(job_title,str) and len(job_title):
+            self._job_title=job_title
+        else:
+            raise ValueError("Job title must be a non-empty string")
+    @property
+    def department_id(self):
+        return self._department_id
+    @department_id.setter
+    def department_id(self,department_id):
+        if type(department_id) is int and Department.find_by_id(department_id):
+            self._department_id=department_id
+        else:
+            raise ValueError("department_id must reference a department in the database")
     @classmethod
     def create_table(cls):
         sql="""
@@ -86,7 +113,7 @@ class Employee:
         sql="SELECT * FROM employees WHERE name is?;"
         row=CURSOR.execute(sql,(name,)).fetchone()
         return cls.instance_from_db(row) if row else None
-#Employee.drop_table()
+Employee.drop_table()
 Employee.create_table()
 faker=Faker()
 employee1=Employee.create(faker.name(),"Manager",1)
@@ -107,5 +134,8 @@ print(Employee.find_by_id(1))
 print(Employee.find_by_name("James"))
 print(Employee.get_all())
 print(Employee.all)
+employee5=Employee.create(99,"Artist",3)
+employee5=Employee.create("Savage",99,3)
+employee5=Employee.create("Savage","Artist",100)
 CURSOR.close()
 CONN.close()
