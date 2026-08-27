@@ -106,4 +106,6 @@ if __name__ == "__main__":
     finance.delete()
     print(Department.find_by_name("Finance"))
     print(Department.get_all())
+    CURSOR.close()
+    CONN.close()
 
