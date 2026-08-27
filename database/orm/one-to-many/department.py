@@ -127,6 +127,6 @@ if __name__ == "__main__":
 
     it=Department.create(99,"Building C")
     it=Department.create("John",33)
-    CURSOR.close()
-    CONN.close()
+    # CURSOR.close()
+    # CONN.close()
 
